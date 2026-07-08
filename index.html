@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ============================================================
+       EDIT: Page title and SEO meta tags
+       ============================================================ -->
+  <title>Drone Agro — Agricultura de Precisão com Drones</title>
+  <meta name="description" content="Serviços profissionais de drones para agricultura: pulverização de precisão, sementeira aérea e monitorização de culturas. Rápido, eficiente e sustentável.">
+  <meta name="keywords" content="drones agricultura, pulverização precisão, sementeira aérea, monitorização culturas, NDVI, Portugal">
+
+  <!-- Open Graph (used by WhatsApp, Facebook etc. when sharing your link) -->
+  <!-- EDIT: Update these with your actual URL and a real preview image -->
+  <meta property="og:title" content="Drone Agro — Agricultura de Precisão com Drones">
+  <meta property="og:description" content="Tecnologia de drones ao serviço da agricultura portuguesa.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1422651973727-50f085c0b26f?w=1200&h=630&fit=crop&q=80&auto=format">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon (SVG inline — works on all modern browsers) -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Google Fonts — single request for both fonts -->
+  <!-- EDIT: To change fonts, swap out the family names here AND update --font-display / --font-body in css/style.css -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVIGATION
+       EDIT: Change company name and nav links as needed
+       ============================================================ -->
+  <nav class="nav" aria-label="Navegação principal">
+    <div class="container">
+      <div class="nav__inner">
+
+        <!-- Logo -->
+        <a href="#" class="nav__logo" aria-label="Drone Agro — Página inicial">
+          <!-- Inline SVG drone logo -->
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="40" height="40" rx="8" fill="currentColor" fill-opacity="0.14"/>
+            <rect x="16" y="16" width="8" height="8" rx="1.5" fill="currentColor"/>
+            <line x1="12" y1="12" x2="16" y2="16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="28" y1="12" x2="24" y2="16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="12" y1="28" x2="16" y2="24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="28" y1="28" x2="24" y2="24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <ellipse cx="11" cy="11" rx="4" ry="1.6" fill="currentColor" opacity="0.65" transform="rotate(-35 11 11)"/>
+            <ellipse cx="29" cy="11" rx="4" ry="1.6" fill="currentColor" opacity="0.65" transform="rotate(35 29 11)"/>
+            <ellipse cx="11" cy="29" rx="4" ry="1.6" fill="currentColor" opacity="0.65" transform="rotate(35 11 29)"/>
+            <ellipse cx="29" cy="29" rx="4" ry="1.6" fill="currentColor" opacity="0.65" transform="rotate(-35 29 29)"/>
+          </svg>
+          <!-- EDIT: Company name -->
+          Drone <span>Agro</span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <!-- EDIT: Add, remove, or rename links below -->
+        <ul class="nav__links" role="list">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#como-funciona">Como Funciona</a></li>
+          <li><a href="#culturas">Culturas</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+
+        <!-- Desktop CTA button -->
+        <!-- EDIT: Change the link to point to your contact or quote form -->
+        <a href="#contacto" class="btn-nav nav__cta">Pedir Orçamento</a>
+
+        <!-- Mobile hamburger -->
+        <button class="nav__hamburger" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <nav class="nav__drawer" aria-label="Menu móvel">
+      <a href="#servicos">Serviços</a>
+      <a href="#como-funciona">Como Funciona</a>
+      <a href="#culturas">Culturas</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#contacto" style="color:var(--clr-accent); font-weight:700;">Pedir Orçamento →</a>
+    </nav>
+  </nav>
+
+
+  <!-- ============================================================
+       HERO
+       EDIT: Title, subtitle, and background image URL
+       ============================================================ -->
+  <section class="hero" aria-label="Cabeçalho principal">
+
+    <!-- REPLACE IMAGE: Change the URL in background-image (in the style attribute below)
+         to your hero photo. Ideal: aerial shot of Portuguese farmland, min 1920×1080px.
+         You can also set it in css/style.css under .hero__bg { background-image: ... } -->
+    <div class="hero__bg" style="background-image: url('assets/hero-vineyard.jpg');" aria-hidden="true"></div>
+    <div class="hero__overlay" aria-hidden="true"></div>
+    <div class="hero__grain" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <div class="container">
+
+        <div class="hero__eyebrow reveal">
+          <!-- EDIT: Short eyebrow label above the title -->
+          <span class="eyebrow">Agricultura de Precisão</span>
+        </div>
+
+        <!-- EDIT: Main hero headline. Use <em> for italic accent on any word. -->
+        <h1 class="hero__title reveal reveal-delay-1">
+          O futuro<br>da terra<br><em>está no ar.</em>
+        </h1>
+
+        <!-- EDIT: Hero subtitle / description -->
+        <p class="hero__sub reveal reveal-delay-2">
+          Drones profissionais ao serviço da agricultura portuguesa.
+          Mais produção, menos produto, zero compactação do solo.
+        </p>
+
+        <!-- EDIT: CTA button labels and links -->
+        <div class="hero__actions reveal reveal-delay-3">
+          <a href="#contacto" class="btn-primary">
+            <!-- Arrow icon -->
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Pedir Orçamento Gratuito
+          </a>
+          <a href="#servicos" class="btn-secondary">
+            Ver Serviços
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Stats ticker — shown at the bottom of the hero -->
+    <div class="hero__ticker" aria-label="Estatísticas principais">
+      <div class="container">
+        <div class="hero__ticker-inner">
+
+          <!-- EDIT: Change numbers and labels as needed -->
+          <div class="hero__stat">
+            <span class="hero__stat-num">100%</span>
+            <span class="hero__stat-label">Precisão GPS</span>
+          </div>
+          <div class="hero__ticker-divider" aria-hidden="true"></div>
+
+          <div class="hero__stat">
+            <span class="hero__stat-num">5×</span>
+            <span class="hero__stat-label">Mais Rápido</span>
+          </div>
+          <div class="hero__ticker-divider" aria-hidden="true"></div>
+
+          <div class="hero__stat">
+            <span class="hero__stat-num">30%</span>
+            <span class="hero__stat-label">Menos Produto</span>
+          </div>
+          <div class="hero__ticker-divider" aria-hidden="true"></div>
+
+          <div class="hero__stat">
+            <span class="hero__stat-num">50 ha/dia</span>
+            <span class="hero__stat-label">Capacidade Diária</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+       SERVICES
+       EDIT: Change service titles, descriptions, and images
+       ============================================================ -->
+  <section class="services" id="servicos" aria-labelledby="services-heading">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="eyebrow">O que fazemos</span>
+        <!-- EDIT: Section title -->
+        <h2 class="section-title" id="services-heading">Serviços especializados<br>para cada cultura</h2>
+        <!-- EDIT: Section lead text -->
+        <p class="section-lead">Tecnologia de ponta adaptada às necessidades reais do campo português — do olival ao arrozal.</p>
+      </div>
+
+      <div class="services__grid">
+
+        <!-- SERVICE 1 -->
+        <!-- EDIT: Change title, description, and image for this service card -->
+        <article class="service-card reveal reveal-delay-1">
+          <div class="service-card__icon" aria-hidden="true">
+            <!-- Spray / droplets icon -->
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 14c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#3a7d2f" stroke-width="1.8" stroke-linecap="round"/>
+              <circle cx="13" cy="14" r="2" fill="#3a7d2f"/>
+              <path d="M9 20l1-3M13 21v-3M17 20l-1-3" stroke="#3a7d2f" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <!-- EDIT: Service name -->
+          <h3 class="service-card__title">Pulverização de Precisão</h3>
+          <!-- EDIT: Service description -->
+          <p class="service-card__desc">
+            Aplicação centimétrica de fitofármacos, fertilizantes foliares e bioestimulantes.
+            Reduz o desperdício em até 30% e elimina a exposição humana a químicos.
+          </p>
+          <a href="#contacto" class="service-card__link">
+            Saber mais
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <!-- REPLACE IMAGE: Change the src URL below to your own service photo -->
+          <div class="service-card__image">
+            <img
+              src="https://picsum.photos/seed/drone-spray-crop/600/340"
+              alt="Drone a pulverizar culturas"
+              loading="lazy"
+              width="600" height="340"
+            >
+          </div>
+        </article>
+
+        <!-- SERVICE 2 -->
+        <!-- EDIT: Change title, description, and image for this service card -->
+        <article class="service-card reveal reveal-delay-2">
+          <div class="service-card__icon" aria-hidden="true">
+            <!-- Seeds / scatter icon -->
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="7" cy="18" r="2" fill="#3a7d2f"/>
+              <circle cx="13" cy="9" r="2" fill="#3a7d2f"/>
+              <circle cx="19" cy="18" r="2" fill="#3a7d2f"/>
+              <path d="M13 9v4M7 18l3-3M19 18l-3-3" stroke="#3a7d2f" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title">Sementeira & Fertilização Aérea</h3>
+          <p class="service-card__desc">
+            Distribuição uniforme de sementes e fertilizantes granulados em terrenos de
+            difícil acesso. Sem compactação do solo, 50 hectares por dia.
+          </p>
+          <a href="#contacto" class="service-card__link">
+            Saber mais
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <!-- REPLACE IMAGE: Change src below -->
+          <div class="service-card__image">
+            <img
+              src="https://picsum.photos/seed/drone-seed-field/600/340"
+              alt="Drone a semear campo agrícola"
+              loading="lazy"
+              width="600" height="340"
+            >
+          </div>
+        </article>
+
+        <!-- SERVICE 3 -->
+        <!-- EDIT: Change title, description, and image for this service card -->
+        <article class="service-card reveal reveal-delay-3">
+          <div class="service-card__icon" aria-hidden="true">
+            <!-- NDVI / sensor icon -->
+            <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="10" width="4" height="8" rx="1" fill="#3a7d2f" opacity="0.5"/>
+              <rect x="11" y="6" width="4" height="12" rx="1" fill="#3a7d2f"/>
+              <rect x="18" y="13" width="4" height="5" rx="1" fill="#3a7d2f" opacity="0.7"/>
+            </svg>
+          </div>
+          <h3 class="service-card__title">Monitorização de Culturas</h3>
+          <p class="service-card__desc">
+            Imagens NDVI e multiespectral para detetar stress hídrico, pragas e
+            deficiências nutricionais. Relatórios em tempo real, decisões mais rápidas.
+          </p>
+          <a href="#contacto" class="service-card__link">
+            Saber mais
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <!-- REPLACE IMAGE: Change src below -->
+          <div class="service-card__image">
+            <img
+              src="https://picsum.photos/seed/drone-ndvi-monitoring/600/340"
+              alt="Monitorização NDVI de cultura"
+              loading="lazy"
+              width="600" height="340"
+            >
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       STATS / WHY US
+       EDIT: Change stats and benefit descriptions
+       ============================================================ -->
+  <section class="stats" id="vantagens" aria-labelledby="stats-heading">
+    <div class="container">
+      <div class="stats__layout">
+
+        <!-- Left: text + benefits -->
+        <div class="stats__left">
+          <div class="section-header reveal">
+            <span class="eyebrow">Porquê a Drone Agro</span>
+            <!-- EDIT: Section title -->
+            <h2 class="section-title" id="stats-heading">Resultados que<br>se medem no campo</h2>
+            <!-- EDIT: Section lead text -->
+            <p class="section-lead">Combinamos tecnologia de drones de última geração com conhecimento agronómico profundo para maximizar a sua produção.</p>
+          </div>
+
+          <!-- EDIT: Add or remove benefit items as needed -->
+          <ul class="stats__benefits" aria-label="Vantagens">
+            <li class="stats__benefit reveal reveal-delay-1">
+              <svg class="stats__benefit-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <p><strong>Sem compactação do solo</strong> — drones nunca tocam o terreno, preservando a estrutura e a microfauna.</p>
+            </li>
+            <li class="stats__benefit reveal reveal-delay-2">
+              <svg class="stats__benefit-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <p><strong>Terrenos de difícil acesso</strong> — declives acentuados, zonas húmidas e áreas remotas não são obstáculo.</p>
+            </li>
+            <li class="stats__benefit reveal reveal-delay-3">
+              <svg class="stats__benefit-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <p><strong>Operadores certificados ANAC</strong> — todos os pilotos têm licença A2 e seguro de responsabilidade civil.</p>
+            </li>
+            <li class="stats__benefit reveal reveal-delay-4">
+              <svg class="stats__benefit-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="1.6"/>
+                <path d="M6 10l3 3 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <p><strong>Relatórios detalhados</strong> — após cada missão recebe um relatório georreferenciado completo.</p>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: big number grid -->
+        <!-- EDIT: Change the numbers and labels below -->
+        <div class="stats__numbers reveal reveal-delay-2" role="list" aria-label="Estatísticas">
+          <div class="stat-box" role="listitem">
+            <!-- The JS will animate these numbers on scroll. Change the text content to change the target value. -->
+            <span class="stat-box__num">100%</span>
+            <span class="stat-box__label">Precisão na aplicação GPS RTK</span>
+          </div>
+          <div class="stat-box" role="listitem">
+            <span class="stat-box__num">5×</span>
+            <span class="stat-box__label">Mais rápido que tratores convencionais</span>
+          </div>
+          <div class="stat-box" role="listitem">
+            <span class="stat-box__num">30%</span>
+            <span class="stat-box__label">Redução no consumo de produto</span>
+          </div>
+          <div class="stat-box" role="listitem">
+            <span class="stat-box__num">50 ha/dia</span>
+            <span class="stat-box__label">Capacidade diária por aeronave</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       HOW IT WORKS
+       EDIT: Change step titles and descriptions
+       ============================================================ -->
+  <section class="how" id="como-funciona" aria-labelledby="how-heading">
+    <div class="container">
+
+      <div class="section-header reveal" style="align-items:center; text-align:center;">
+        <span class="eyebrow">O processo</span>
+        <!-- EDIT: Section title -->
+        <h2 class="section-title" id="how-heading">Simples como voar</h2>
+        <!-- EDIT: Section lead text -->
+        <p class="section-lead" style="text-align:center; margin:0 auto;">Do primeiro contacto ao relatório final em 3 passos. Sem burocracia, sem surpresas.</p>
+      </div>
+
+      <div class="how__steps" role="list">
+
+        <!-- STEP 1 -->
+        <!-- EDIT: Step title and description -->
+        <div class="how__step reveal reveal-delay-1" role="listitem">
+          <span class="how__step-num" aria-hidden="true">01</span>
+          <div class="how__step-icon" aria-hidden="true">
+            <!-- Phone / contact icon -->
+            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 5h4l2 5-2.5 1.5c1 2 3 4 5 5L18 14l5 2v4c0 1.1-.9 2-2 2A18 18 0 015 7c0-1.1.9-2 2-2z" stroke="#3a7d2f" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="how__step-title">Pedido & Visita</h3>
+          <p class="how__step-desc">Contacta-nos, visitamos a propriedade e elaboramos um plano de missão personalizado sem custos.</p>
+        </div>
+
+        <!-- Arrow -->
+        <div class="how__arrow" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 14h16M16 8l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+
+        <!-- STEP 2 -->
+        <!-- EDIT: Step title and description -->
+        <div class="how__step reveal reveal-delay-2" role="listitem">
+          <span class="how__step-num" aria-hidden="true">02</span>
+          <div class="how__step-icon" aria-hidden="true">
+            <!-- Drone / flight icon -->
+            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="10" y="10" width="8" height="8" rx="1.5" fill="#3a7d2f" opacity="0.3"/>
+              <circle cx="10" cy="10" r="2.5" stroke="#3a7d2f" stroke-width="1.7"/>
+              <circle cx="18" cy="10" r="2.5" stroke="#3a7d2f" stroke-width="1.7"/>
+              <circle cx="10" cy="18" r="2.5" stroke="#3a7d2f" stroke-width="1.7"/>
+              <circle cx="18" cy="18" r="2.5" stroke="#3a7d2f" stroke-width="1.7"/>
+            </svg>
+          </div>
+          <h3 class="how__step-title">Missão de Voo</h3>
+          <p class="how__step-desc">A nossa equipa executa a missão com total autonomia e segurança, respeitando toda a regulamentação ANAC.</p>
+        </div>
+
+        <!-- Arrow -->
+        <div class="how__arrow" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 14h16M16 8l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+
+        <!-- STEP 3 -->
+        <!-- EDIT: Step title and description -->
+        <div class="how__step reveal reveal-delay-3" role="listitem">
+          <span class="how__step-num" aria-hidden="true">03</span>
+          <div class="how__step-icon" aria-hidden="true">
+            <!-- Report / chart icon -->
+            <svg viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="4" width="16" height="20" rx="2" stroke="#3a7d2f" stroke-width="1.7"/>
+              <path d="M10 9h8M10 13h8M10 17h5" stroke="#3a7d2f" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="how__step-title">Relatório & Dados</h3>
+          <p class="how__step-desc">Recebe um relatório georreferenciado completo com mapas, análises e recomendações agronómicas.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CULTURES
+       EDIT: Change crop names, subtitles, and background images
+       ============================================================ -->
+  <section class="cultures" id="culturas" aria-labelledby="cultures-heading">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="eyebrow">Culturas que servimos</span>
+        <!-- EDIT: Section title -->
+        <h2 class="section-title" id="cultures-heading">Para cada cultura,<br>uma solução</h2>
+      </div>
+
+      <div class="cultures__grid" role="list">
+
+        <!-- CULTURE 1 — Olival -->
+        <!-- REPLACE IMAGE: Change background-image URL to your own olive grove photo -->
+        <article class="culture-card reveal reveal-delay-1" role="listitem">
+          <div class="culture-card__bg" style="background-image: url('https://picsum.photos/seed/olival-portugal/400/530');"></div>
+          <div class="culture-card__overlay"></div>
+          <div class="culture-card__content">
+            <!-- EDIT: Crop name and subtitle -->
+            <h3 class="culture-card__name">Olival</h3>
+            <span class="culture-card__sub">Pulverização · Monitorização</span>
+          </div>
+        </article>
+
+        <!-- CULTURE 2 — Vinha -->
+        <!-- REPLACE IMAGE: Change background-image URL to your own vineyard photo -->
+        <article class="culture-card reveal reveal-delay-2" role="listitem">
+          <div class="culture-card__bg" style="background-image: url('https://picsum.photos/seed/vinha-douro/400/530');"></div>
+          <div class="culture-card__overlay"></div>
+          <div class="culture-card__content">
+            <h3 class="culture-card__name">Vinha</h3>
+            <span class="culture-card__sub">Pulverização · NDVI</span>
+          </div>
+        </article>
+
+        <!-- CULTURE 3 — Arroz -->
+        <!-- REPLACE IMAGE: Change background-image URL to your own rice field photo -->
+        <article class="culture-card reveal reveal-delay-3" role="listitem">
+          <div class="culture-card__bg" style="background-image: url('https://picsum.photos/seed/arrozal-ribatejo/400/530');"></div>
+          <div class="culture-card__overlay"></div>
+          <div class="culture-card__content">
+            <h3 class="culture-card__name">Arroz</h3>
+            <span class="culture-card__sub">Sementeira · Fertilização</span>
+          </div>
+        </article>
+
+        <!-- CULTURE 4 — Amendoal -->
+        <!-- REPLACE IMAGE: Change background-image URL to your own almond grove photo -->
+        <article class="culture-card reveal reveal-delay-4" role="listitem">
+          <div class="culture-card__bg" style="background-image: url('https://picsum.photos/seed/amendoal-alentejo/400/530');"></div>
+          <div class="culture-card__overlay"></div>
+          <div class="culture-card__content">
+            <h3 class="culture-card__name">Amendoal</h3>
+            <span class="culture-card__sub">Pulverização · Monitorização</span>
+          </div>
+        </article>
+
+        <!-- CULTURE 5 — Cereais -->
+        <!-- REPLACE IMAGE: Change background-image URL to your own cereal field photo -->
+        <article class="culture-card reveal reveal-delay-5" role="listitem">
+          <div class="culture-card__bg" style="background-image: url('https://picsum.photos/seed/cereais-alentejo/400/530');"></div>
+          <div class="culture-card__overlay"></div>
+          <div class="culture-card__content">
+            <h3 class="culture-card__name">Cereais</h3>
+            <span class="culture-card__sub">Sementeira · Fertilização</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       GALLERY / PORTFOLIO
+       EDIT: Change image sources and captions
+       ============================================================ -->
+  <section class="gallery" id="galeria" aria-labelledby="gallery-heading">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <span class="eyebrow">Portfólio</span>
+        <!-- EDIT: Section title -->
+        <h2 class="section-title" id="gallery-heading">O nosso trabalho<br>em imagens</h2>
+      </div>
+
+      <div class="gallery__grid" role="list">
+
+        <!-- REPLACE IMAGE: Change src to your own portfolio photo. Add caption text. -->
+        <figure class="gallery__item gallery__item--tall reveal" role="listitem">
+          <img src="https://picsum.photos/seed/gallery-drone-tall/400/700" alt="Drone em voo sobre olival" loading="lazy" width="400" height="700">
+          <!-- EDIT: Caption shown on hover -->
+          <figcaption class="gallery__caption">Missão de pulverização — Olival, Alentejo</figcaption>
+        </figure>
+
+        <!-- REPLACE IMAGE -->
+        <figure class="gallery__item reveal reveal-delay-1" role="listitem">
+          <img src="https://picsum.photos/seed/gallery-vinha-1/600/340" alt="Monitorização NDVI de vinha" loading="lazy" width="600" height="340">
+          <figcaption class="gallery__caption">Mapeamento NDVI — Vinha, Douro</figcaption>
+        </figure>
+
+        <!-- REPLACE IMAGE -->
+        <figure class="gallery__item reveal reveal-delay-2" role="listitem">
+          <img src="https://picsum.photos/seed/gallery-cereal/600/340" alt="Sementeira aérea em cerealíferas" loading="lazy" width="600" height="340">
+          <figcaption class="gallery__caption">Sementeira aérea — Cereais, Ribatejo</figcaption>
+        </figure>
+
+        <!-- REPLACE IMAGE -->
+        <figure class="gallery__item gallery__item--wide reveal reveal-delay-1" role="listitem">
+          <img src="https://picsum.photos/seed/gallery-aerial-wide/900/400" alt="Vista aérea de campos agrícolas" loading="lazy" width="900" height="400">
+          <figcaption class="gallery__caption">Vista aérea — propriedade de 80 ha, Beja</figcaption>
+        </figure>
+
+        <!-- REPLACE IMAGE -->
+        <figure class="gallery__item reveal reveal-delay-2" role="listitem">
+          <img src="https://picsum.photos/seed/gallery-arroz/400/400" alt="Fertilização de arrozal" loading="lazy" width="400" height="400">
+          <figcaption class="gallery__caption">Fertilização aérea — Arroz, Lezíria</figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       TESTIMONIALS
+       EDIT: Change quotes, names, roles, and photos
+       ============================================================ -->
+  <section class="testimonials" id="testemunhos" aria-labelledby="testimonials-heading">
+    <div class="container">
+
+      <div class="section-header reveal" style="align-items:center; text-align:center;">
+        <span class="eyebrow">O que dizem os clientes</span>
+        <!-- EDIT: Section title -->
+        <h2 class="section-title" id="testimonials-heading">Agricultores que<br>já voam connosco</h2>
+      </div>
+
+      <div class="testimonials__grid">
+
+        <!-- TESTIMONIAL 1 -->
+        <!-- EDIT: Change quote, name, role, and avatar image -->
+        <article class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-card__stars" aria-label="5 estrelas">★★★★★</div>
+          <!-- EDIT: Customer quote -->
+          <blockquote class="testimonial-card__quote">
+            "Reduzi o custo de tratamentos em 28% no primeiro ano. A equipa é profissional,
+            rápida e os relatórios NDVI ajudaram-me a detetar uma praga antes de se espalhar."
+          </blockquote>
+          <div class="testimonial-card__footer">
+            <!-- REPLACE IMAGE: Change src to customer photo, or remove <img> and use initials -->
+            <div class="testimonial-card__avatar">
+              <img src="https://picsum.photos/seed/farmer-manuel/80/80" alt="Foto de Manuel Costa" loading="lazy" width="80" height="80">
+            </div>
+            <div>
+              <!-- EDIT: Customer name and role/location -->
+              <p class="testimonial-card__name">Manuel Costa</p>
+              <p class="testimonial-card__role">Olivicultor · 120 ha · Alentejo</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- TESTIMONIAL 2 -->
+        <!-- EDIT: Change quote, name, role, and avatar image -->
+        <article class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-card__stars" aria-label="5 estrelas">★★★★★</div>
+          <blockquote class="testimonial-card__quote">
+            "A pulverização com drone na nossa vinha foi uma revolução. Chegam a socalcos
+            impossíveis para qualquer trator, sem danificar as cepas. Serviço impecável."
+          </blockquote>
+          <div class="testimonial-card__footer">
+            <!-- REPLACE IMAGE -->
+            <div class="testimonial-card__avatar">
+              <img src="https://picsum.photos/seed/farmer-ana/80/80" alt="Foto de Ana Ferreira" loading="lazy" width="80" height="80">
+            </div>
+            <div>
+              <p class="testimonial-card__name">Ana Ferreira</p>
+              <p class="testimonial-card__role">Produtora de Vinho · 45 ha · Douro</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- TESTIMONIAL 3 -->
+        <!-- EDIT: Change quote, name, role, and avatar image -->
+        <article class="testimonial-card reveal reveal-delay-3">
+          <div class="testimonial-card__stars" aria-label="5 estrelas">★★★★★</div>
+          <blockquote class="testimonial-card__quote">
+            "Semeámos 200 hectares de arroz em 4 dias. Com meios convencionais teria demorado
+            duas semanas. A Drone Agro mudou completamente a gestão da nossa exploração."
+          </blockquote>
+          <div class="testimonial-card__footer">
+            <!-- REPLACE IMAGE -->
+            <div class="testimonial-card__avatar">
+              <img src="https://picsum.photos/seed/farmer-joao/80/80" alt="Foto de João Rodrigues" loading="lazy" width="80" height="80">
+            </div>
+            <div>
+              <p class="testimonial-card__name">João Rodrigues</p>
+              <p class="testimonial-card__role">Arrozeiro · 200 ha · Lezíria do Tejo</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CONTACT / CTA
+       EDIT: Contact details and form fields
+       ============================================================ -->
+  <section class="contact" id="contacto" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="contact__layout">
+
+        <!-- Left: info -->
+        <div class="contact__info reveal">
+          <div class="section-header">
+            <span class="eyebrow">Contacto</span>
+            <!-- EDIT: Section title -->
+            <h2 class="section-title" id="contact-heading">Vamos falar<br>sobre a sua terra</h2>
+            <!-- EDIT: Contact section description -->
+            <p class="section-lead">Pedido de orçamento gratuito. Respondemos em menos de 24 horas.</p>
+          </div>
+
+          <!-- EDIT: Change phone, email, and address below -->
+          <ul class="contact__details" aria-label="Dados de contacto">
+            <li class="contact__detail">
+              <!-- Phone icon -->
+              <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 2.5h3l1.5 3.5L6.8 7.2c.8 1.5 2.3 3 3.8 3.8L12 9.5l3.5 1.5V14c0 .8-.7 1.5-1.5 1.5A13.5 13.5 0 012.5 4C2.5 3.2 3.2 2.5 4 2.5z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <!-- EDIT: Phone number -->
+              <a href="tel:+351910000000">+351 910 000 000</a>
+            </li>
+            <li class="contact__detail">
+              <!-- Email icon -->
+              <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="4" width="14" height="10" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M2 6l7 5 7-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+              <!-- EDIT: Email address -->
+              <a href="mailto:contacto@drone-agro.pt">contacto@drone-agro.pt</a>
+            </li>
+            <li class="contact__detail">
+              <!-- Location icon -->
+              <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2a5 5 0 015 5c0 3.5-5 9-5 9S4 10.5 4 7a5 5 0 015-5z" stroke="currentColor" stroke-width="1.4"/><circle cx="9" cy="7" r="1.5" stroke="currentColor" stroke-width="1.4"/></svg>
+              <!-- EDIT: Address / service area -->
+              <span>Portugal Continental · Ilhas a pedido</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: form -->
+        <!-- NOTE: This form currently uses a mailto: fallback (handled by main.js).
+             To handle real form submissions, change the JS in js/main.js under
+             "CONTACT FORM" to POST to your backend or a service like Formspree. -->
+        <form class="contact__form reveal reveal-delay-2" aria-label="Formulário de contacto" novalidate>
+
+          <div class="form-row">
+            <div class="form-group">
+              <!-- EDIT: Field label -->
+              <label for="nome">Nome *</label>
+              <input type="text" id="nome" name="nome" placeholder="João Silva" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" placeholder="joao@quinta.pt" required autocomplete="email">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="telefone">Telefone</label>
+              <input type="tel" id="telefone" name="telefone" placeholder="+351 9xx xxx xxx" autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <!-- EDIT: Dropdown options for area -->
+              <label for="hectares">Área estimada</label>
+              <select id="hectares" name="hectares">
+                <option value="">Selecionar...</option>
+                <option value="<10">Menos de 10 ha</option>
+                <option value="10-50">10 – 50 ha</option>
+                <option value="50-200">50 – 200 ha</option>
+                <option value=">200">Mais de 200 ha</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="servico">Serviço de interesse</label>
+            <select id="servico" name="servico">
+              <option value="">Selecionar...</option>
+              <option value="pulverizacao">Pulverização de Precisão</option>
+              <option value="sementeira">Sementeira Aérea</option>
+              <option value="monitorizacao">Monitorização NDVI / Multiespectral</option>
+              <option value="outro">Outro / Não sei ainda</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="mensagem">Mensagem *</label>
+            <!-- EDIT: Textarea placeholder -->
+            <textarea id="mensagem" name="mensagem" placeholder="Descreva a sua exploração agrícola e o que pretende..." required></textarea>
+          </div>
+
+          <!-- EDIT: Button label -->
+          <button type="submit" class="btn-primary" style="width:100%; justify-content:center;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8l12-6-6 12V8H2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Enviar Pedido de Orçamento
+          </button>
+
+          <!-- EDIT: Privacy note text -->
+          <p class="form-note">Os seus dados são utilizados apenas para responder ao seu pedido. Não partilhamos informação com terceiros.</p>
+
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       FOOTER
+       EDIT: Company info, links, and social media URLs
+       ============================================================ -->
+  <footer class="footer" aria-label="Rodapé">
+    <div class="container">
+      <div class="footer__main">
+
+        <!-- Brand column -->
+        <div class="footer__brand">
+          <a href="#" class="footer__logo" aria-label="Drone Agro — Início">
+            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="40" height="40" rx="8" fill="rgba(58,125,47,0.10)"/>
+              <rect x="16" y="16" width="8" height="8" rx="1.5" fill="#3a7d2f"/>
+              <line x1="12" y1="12" x2="16" y2="16" stroke="#3a7d2f" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="28" y1="12" x2="24" y2="16" stroke="#3a7d2f" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="12" y1="28" x2="16" y2="24" stroke="#3a7d2f" stroke-width="1.8" stroke-linecap="round"/>
+              <line x1="28" y1="28" x2="24" y2="24" stroke="#3a7d2f" stroke-width="1.8" stroke-linecap="round"/>
+              <ellipse cx="11" cy="11" rx="4" ry="1.6" fill="#3a7d2f" opacity="0.65" transform="rotate(-35 11 11)"/>
+              <ellipse cx="29" cy="11" rx="4" ry="1.6" fill="#3a7d2f" opacity="0.65" transform="rotate(35 29 11)"/>
+              <ellipse cx="11" cy="29" rx="4" ry="1.6" fill="#3a7d2f" opacity="0.65" transform="rotate(35 11 29)"/>
+              <ellipse cx="29" cy="29" rx="4" ry="1.6" fill="#3a7d2f" opacity="0.65" transform="rotate(-35 29 29)"/>
+            </svg>
+            Drone <span>Agro</span>
+          </a>
+          <!-- EDIT: Footer tagline -->
+          <p class="footer__tagline">Tecnologia de drones ao serviço da agricultura portuguesa. Precisão, eficiência e sustentabilidade.</p>
+          <!-- EDIT: Add your real social media URLs below -->
+          <div class="footer__social" aria-label="Redes sociais">
+            <!-- Instagram -->
+            <a href="#" aria-label="Instagram da Drone Agro">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            </a>
+            <!-- Facebook -->
+            <a href="#" aria-label="Facebook da Drone Agro">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="#" aria-label="LinkedIn da Drone Agro">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="4" stroke="currentColor" stroke-width="1.6"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </a>
+            <!-- YouTube -->
+            <a href="#" aria-label="YouTube da Drone Agro">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="1.6"/><path d="M10 9l5 3-5 3V9z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Services column -->
+        <!-- EDIT: Change link texts and hrefs as needed -->
+        <div class="footer__col">
+          <h4>Serviços</h4>
+          <ul>
+            <li><a href="#servicos">Pulverização de Precisão</a></li>
+            <li><a href="#servicos">Sementeira Aérea</a></li>
+            <li><a href="#servicos">Monitorização NDVI</a></li>
+            <li><a href="#contacto">Pedir Orçamento</a></li>
+          </ul>
+        </div>
+
+        <!-- Cultures column -->
+        <div class="footer__col">
+          <h4>Culturas</h4>
+          <ul>
+            <li><a href="#culturas">Olival</a></li>
+            <li><a href="#culturas">Vinha</a></li>
+            <li><a href="#culturas">Arroz</a></li>
+            <li><a href="#culturas">Amendoal</a></li>
+            <li><a href="#culturas">Cereais</a></li>
+          </ul>
+        </div>
+
+        <!-- Company column -->
+        <div class="footer__col">
+          <h4>Empresa</h4>
+          <ul>
+            <li><a href="#como-funciona">Como Funciona</a></li>
+            <li><a href="#testemunhos">Testemunhos</a></li>
+            <!-- EDIT: Add links to your About, Blog, etc. pages when they exist -->
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer__bottom">
+        <!-- EDIT: Change company legal name and year -->
+        <p class="footer__copy">© 2025 Drone Agro, Lda. Todos os direitos reservados.</p>
+        <nav class="footer__legal" aria-label="Links legais">
+          <!-- EDIT: Add links to your privacy policy and terms pages -->
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos e Condições</a>
+        </nav>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- Main JS (no external dependencies) -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
