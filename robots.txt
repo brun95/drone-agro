@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://brun95.github.io/drone-agro/sitemap.xml

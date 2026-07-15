@@ -127,30 +127,71 @@
      ---------------------------------------------------------- */
   const form = document.querySelector('.contact__form');
   if (form) {
+    // EDIT: Replace with your real inbox for the mailto fallback
+    const CONTACT_EMAIL = 'geral@skyplant.pt';
+    const status = form.querySelector('.form-status');
+
+    // Show a message in the inline status region.
+    // kind = 'error' | 'info'. `html` allows a fallback link.
+    function showStatus(kind, html) {
+      if (!status) return;
+      status.className = 'form-status form-status--' + kind;
+      status.innerHTML = html;
+      status.hidden = false;
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      const name     = form.querySelector('[name="nome"]').value.trim();
-      const email    = form.querySelector('[name="email"]').value.trim();
-      const hectares = form.querySelector('[name="hectares"]').value.trim();
-      const message  = form.querySelector('[name="mensagem"]').value.trim();
+      // Field name -> element, in visual order (so we can focus the first empty one)
+      const fields = ['nome', 'email', 'telefone', 'hectares', 'servico', 'mensagem'];
+      const values = {};
+      let firstEmpty = null;
 
-      if (!name || !email || !message) {
-        alert('Por favor preencha todos os campos obrigatórios.');
+      fields.forEach(function (n) {
+        const el = form.querySelector('[name="' + n + '"]');
+        values[n] = el ? el.value.trim() : '';
+        if (!values[n] && !firstEmpty) firstEmpty = el;
+      });
+
+      // All fields are mandatory
+      if (firstEmpty) {
+        showStatus('error', 'Por favor preencha todos os campos obrigatórios.');
+        firstEmpty.focus();
         return;
       }
 
-      // EDIT: Replace with your real email address for the mailto fallback
-      const to      = 'contacto@drone-agro.pt';
-      const subject = encodeURIComponent('Pedido de orçamento — ' + name);
+      const subject = encodeURIComponent('Pedido de orçamento — ' + values.nome);
       const body    = encodeURIComponent(
-        'Nome: ' + name + '\n' +
-        'Email: ' + email + '\n' +
-        'Hectares: ' + (hectares || 'Não indicado') + '\n\n' +
-        message
+        'Nome: '          + values.nome     + '\n' +
+        'Email: '         + values.email    + '\n' +
+        'Telefone: '      + values.telefone + '\n' +
+        'Área estimada: ' + values.hectares + '\n' +
+        'Serviço: '       + values.servico  + '\n\n' +
+        values.mensagem
       );
 
-      window.location.href = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
+      // Open the visitor's email app with a pre-filled draft.
+      window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
+
+      // Best-effort: copy the address so they can paste it if nothing opened.
+      let copied = false;
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(CONTACT_EMAIL);
+          copied = true;
+        }
+      } catch (err) { /* clipboard unavailable — ignore */ }
+
+      // Explain what just happened + give a fallback (mailto is silent if no
+      // mail client is configured, so never leave the visitor guessing).
+      showStatus('info',
+        'Abrimos o seu programa de email com o pedido já preenchido — ' +
+        'confirme a janela que abriu e carregue em <strong>Enviar</strong>.<br>' +
+        'Se nada aconteceu, escreva-nos diretamente para ' +
+        '<a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>' +
+        (copied ? ' (endereço copiado).' : '.')
+      );
     });
   }
 
@@ -176,5 +217,115 @@
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
+
+
+  /* ----------------------------------------------------------
+     SERVICE CARD LIGHTBOX
+     Clicking (or Enter/Space on) a .service-card[data-gallery]
+     opens a portfolio of images. Works with mouse, keyboard and
+     touch (swipe). Images come from the card's data-gallery attr.
+     ---------------------------------------------------------- */
+  const galleryCards = document.querySelectorAll('.service-card[data-gallery]');
+
+  if (galleryCards.length) {
+    // Build the lightbox once and reuse it
+    const lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', 'Portfólio de imagens');
+    lb.innerHTML =
+      '<div class="lightbox__stage">' +
+        '<button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Imagem anterior">‹</button>' +
+        '<img class="lightbox__img" alt="Imagem do portfólio">' +
+        '<button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Imagem seguinte">›</button>' +
+        '<button class="lightbox__close" type="button" aria-label="Fechar">×</button>' +
+        '<div class="lightbox__counter"></div>' +
+      '</div>';
+    document.body.appendChild(lb);
+
+    const lbImg     = lb.querySelector('.lightbox__img');
+    const lbCounter = lb.querySelector('.lightbox__counter');
+    const btnPrev   = lb.querySelector('.lightbox__nav--prev');
+    const btnNext   = lb.querySelector('.lightbox__nav--next');
+    const btnClose  = lb.querySelector('.lightbox__close');
+
+    let images = [];
+    let index = 0;
+    let lastFocus = null;
+
+    function render() {
+      lbImg.src = images[index];
+      lbCounter.textContent = (index + 1) + ' / ' + images.length;
+      // Single-image galleries don't need arrows
+      const many = images.length > 1;
+      btnPrev.style.display = many ? '' : 'none';
+      btnNext.style.display = many ? '' : 'none';
+      lbCounter.style.display = many ? '' : 'none';
+    }
+
+    function open(list) {
+      images = list;
+      index = 0;
+      lastFocus = document.activeElement;
+      render();
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';   // lock background scroll
+      btnClose.focus();
+    }
+
+    function close() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+      lbImg.removeAttribute('src');
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    function next() { index = (index + 1) % images.length; render(); }
+    function prev() { index = (index - 1 + images.length) % images.length; render(); }
+
+    // Wire up each card
+    galleryCards.forEach(function (card) {
+      const list = (card.getAttribute('data-gallery') || '')
+        .split('|').map(function (s) { return s.trim(); }).filter(Boolean);
+      if (!list.length) return;
+
+      card.addEventListener('click', function () { open(list); });
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+          e.preventDefault();
+          open(list);
+        }
+      });
+    });
+
+    // Controls
+    btnClose.addEventListener('click', close);
+    btnNext.addEventListener('click', function (e) { e.stopPropagation(); next(); });
+    btnPrev.addEventListener('click', function (e) { e.stopPropagation(); prev(); });
+
+    // Click on the dark backdrop (outside the stage) closes
+    lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+
+    // Keyboard: Esc closes, arrows navigate
+    document.addEventListener('keydown', function (e) {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowRight') next();
+      else if (e.key === 'ArrowLeft') prev();
+    });
+
+    // Touch swipe (mobile)
+    let touchX = null;
+    lb.addEventListener('touchstart', function (e) {
+      touchX = e.touches[0].clientX;
+    }, { passive: true });
+    lb.addEventListener('touchend', function (e) {
+      if (touchX === null || images.length < 2) { touchX = null; return; }
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 40) { if (dx < 0) { next(); } else { prev(); } }
+      touchX = null;
+    }, { passive: true });
+  }
 
 })();

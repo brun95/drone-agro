@@ -512,7 +512,7 @@ button, input, textarea, select {
 
 .services__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: var(--space-sm);
 }
 
@@ -525,7 +525,12 @@ button, input, textarea, select {
   flex-direction: column;
   gap: var(--space-sm);
   transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-  cursor: default;
+  cursor: pointer;
+}
+
+.service-card:focus-visible {
+  outline: 2px solid var(--clr-accent);
+  outline-offset: 3px;
 }
 
 .service-card:hover {
@@ -554,12 +559,31 @@ button, input, textarea, select {
 /* REPLACE IMAGE inside each service card: change the src attribute
    of the <img> tag inside each .service-card__image */
 .service-card__image {
+  position: relative;
   width: 100%;
   aspect-ratio: 16/9;
   border-radius: var(--radius);
   overflow: hidden;
   margin-top: auto;
 }
+
+/* "gallery" badge — signals the card opens a portfolio of images */
+.service-card__image::after {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: rgba(8, 15, 9, 0.55) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='13' height='13' rx='2'/%3E%3Cpath d='M8 21h11a2 2 0 0 0 2-2V8'/%3E%3C/svg%3E") center / 18px no-repeat;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  opacity: 0.92;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-card__image::after { transform: scale(1.1); }
 
 .service-card__image img {
   width: 100%;
@@ -1099,6 +1123,35 @@ button, input, textarea, select {
   color: var(--clr-text-dim);
 }
 
+/* Inline form status message (validation errors / mailto feedback) */
+.form-status {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  padding: 0.7rem 0.9rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+}
+
+.form-status[hidden] { display: none; }
+
+.form-status--error {
+  color: #8a2f1e;
+  background: rgba(200, 60, 30, 0.08);
+  border-color: rgba(200, 60, 30, 0.28);
+}
+
+.form-status--info {
+  color: var(--clr-accent-dim);
+  background: rgba(58, 125, 47, 0.08);
+  border-color: var(--clr-border-mid);
+}
+
+.form-status--info a {
+  color: var(--clr-accent);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 /* ----------------------------------------------------------
    FOOTER
    ---------------------------------------------------------- */
@@ -1226,7 +1279,9 @@ button, input, textarea, select {
     --space-2xl: 7rem;
   }
 
-  .services__grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+  .services__grid { grid-template-columns: repeat(2, 1fr); max-width: 680px; margin: 0 auto; }
+
+  .about__layout { grid-template-columns: 1fr; gap: var(--space-lg); }
 
   .stats__layout { grid-template-columns: 1fr; gap: var(--space-lg); }
   .stats__numbers { max-width: 480px; }
@@ -1274,7 +1329,7 @@ button, input, textarea, select {
   .hero__ticker-inner { gap: var(--space-md); }
   .hero__ticker-divider { display: none; }
 
-  .services__grid { max-width: 100%; }
+  .services__grid { grid-template-columns: 1fr; max-width: 100%; }
 
   .stats__numbers { grid-template-columns: 1fr 1fr; }
 
@@ -1291,4 +1346,223 @@ button, input, textarea, select {
   .footer__main { grid-template-columns: 1fr; gap: var(--space-md); }
 
   .footer__bottom { flex-direction: column; align-items: flex-start; }
+}
+
+/* ----------------------------------------------------------
+   ABOUT / QUEM SOMOS
+   ---------------------------------------------------------- */
+.about {
+  padding: var(--space-xl) 0;
+  background: var(--clr-bg);
+}
+
+.about__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.about__media {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(20, 40, 15, 0.12);
+}
+
+.about__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.about__content .section-header { margin-bottom: 0; }
+
+.about__text {
+  font-size: 0.98rem;
+  color: var(--clr-text-muted);
+  line-height: 1.8;
+}
+
+.about__content .btn-primary {
+  align-self: flex-start;
+  margin-top: var(--space-xs);
+}
+
+/* ----------------------------------------------------------
+   LEGAL / CONTENT PAGES (privacy, terms)
+   Sticky footer: content grows, footer stays at the bottom
+   even when the page is shorter than the viewport.
+   ---------------------------------------------------------- */
+body.legal-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* No hero on these pages, so the nav is solid + dark from the start */
+.legal-page .nav {
+  background: rgba(245, 248, 239, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 var(--clr-border);
+}
+
+.legal-page .nav__logo,
+.legal-page .nav__logo svg { color: var(--clr-text); }
+.legal-page .nav__logo span { color: var(--clr-accent); }
+.legal-page .nav__links a { color: var(--clr-text-muted); }
+.legal-page .nav__links a:hover { color: var(--clr-text); }
+.legal-page .nav__hamburger span { background: var(--clr-text); }
+
+.legal {
+  flex: 1 0 auto;    /* pushes the footer down on short pages */
+  padding: calc(var(--nav-h) + var(--space-lg)) 0 var(--space-xl);
+}
+
+.legal__inner { max-width: 820px; }
+
+.legal h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.12;
+  color: var(--clr-text);
+  margin-bottom: var(--space-xs);
+}
+
+.legal__updated {
+  font-size: 0.85rem;
+  color: var(--clr-text-dim);
+  margin-bottom: var(--space-lg);
+}
+
+.legal h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--clr-text);
+  margin: var(--space-md) 0 var(--space-sm);
+}
+
+.legal p,
+.legal li {
+  color: var(--clr-text-muted);
+  line-height: 1.8;
+  margin-bottom: var(--space-sm);
+}
+
+.legal ul {
+  list-style: disc;
+  padding-left: 1.4rem;
+}
+
+.legal a { color: var(--clr-accent); }
+.legal a:hover { text-decoration: underline; }
+
+.legal-page .footer { flex-shrink: 0; }
+
+/* ----------------------------------------------------------
+   LIGHTBOX — service-card image portfolio (built by main.js)
+   ---------------------------------------------------------- */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(8, 15, 9, 0.92);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+.lightbox.open { display: flex; }
+
+.lightbox__stage {
+  position: relative;
+  width: min(1100px, 94vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox__img {
+  max-width: 100%;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+  background: var(--clr-surface-2);
+}
+
+/* Buttons */
+.lightbox__close,
+.lightbox__nav {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: rgba(8, 15, 9, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lightbox__close:hover,
+.lightbox__nav:hover { background: var(--clr-accent); border-color: var(--clr-accent); }
+
+.lightbox__close {
+  top: -14px;
+  right: -14px;
+  width: 44px;
+  height: 44px;
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.lightbox__nav {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  font-size: 2rem;
+  line-height: 1;
+  padding-bottom: 4px;
+}
+
+.lightbox__nav:hover { transform: translateY(-50%) scale(1.06); }
+
+.lightbox__nav--prev { left: -10px; }
+.lightbox__nav--next { right: -10px; }
+
+.lightbox__counter {
+  position: absolute;
+  bottom: -34px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+/* Mobile: keep controls on-screen and comfortably tappable */
+@media (max-width: 640px) {
+  .lightbox { padding: 0.5rem; }
+  .lightbox__img { max-height: 72vh; }
+  .lightbox__close { top: 6px; right: 6px; }
+  .lightbox__nav { width: 46px; height: 46px; }
+  .lightbox__nav--prev { left: 4px; }
+  .lightbox__nav--next { right: 4px; }
 }
