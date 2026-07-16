@@ -195,14 +195,14 @@ button, input, textarea, select {
   color: #fff;               /* logo mark uses currentColor — see index.html */
 }
 
-.nav__logo span {
+.nav__logo .logo-word span {
   color: #a7e06f;            /* bright leaf-green pops over the dark hero */
 }
 
 /* Once scrolled onto the light page, the nav bar flips to dark ink */
 .nav.scrolled .nav__logo,
 .nav.scrolled .nav__logo svg { color: var(--clr-text); }
-.nav.scrolled .nav__logo span { color: var(--clr-accent); }
+.nav.scrolled .nav__logo .logo-word span { color: var(--clr-accent); }
 .nav.scrolled .nav__links a { color: var(--clr-text-muted); }
 .nav.scrolled .nav__links a:hover { color: var(--clr-text); }
 .nav.scrolled .nav__hamburger span { background: var(--clr-text); }
@@ -1187,7 +1187,7 @@ button, input, textarea, select {
 }
 
 .footer__logo svg { width: 28px; height: 28px; }
-.footer__logo span { color: var(--clr-accent); }
+.footer__logo .logo-word span { color: var(--clr-accent); }
 
 .footer__tagline {
   font-size: 0.88rem;
@@ -1271,6 +1271,53 @@ button, input, textarea, select {
 .footer__legal a:hover { color: var(--clr-text-muted); }
 
 /* ----------------------------------------------------------
+   ABOUT / QUEM SOMOS
+   ---------------------------------------------------------- */
+.about {
+  padding: var(--space-xl) 0;
+  background: var(--clr-bg);
+}
+
+.about__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.about__media {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(20, 40, 15, 0.12);
+}
+
+.about__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+}
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.about__content .section-header { margin-bottom: 0; }
+
+.about__text {
+  font-size: 0.98rem;
+  color: var(--clr-text-muted);
+  line-height: 1.8;
+}
+
+.about__content .btn-primary {
+  align-self: flex-start;
+  margin-top: var(--space-xs);
+}
+
+/* ----------------------------------------------------------
    RESPONSIVE — TABLET (≤ 1024px)
    ---------------------------------------------------------- */
 @media (max-width: 1024px) {
@@ -1331,6 +1378,10 @@ button, input, textarea, select {
 
   .services__grid { grid-template-columns: 1fr; max-width: 100%; }
 
+  .about__layout { gap: var(--space-md); }
+  .about__media img { aspect-ratio: 16 / 10; }
+  .about__content .btn-primary { align-self: stretch; justify-content: center; }
+
   .stats__numbers { grid-template-columns: 1fr 1fr; }
 
   .cultures__grid { grid-template-columns: repeat(2, 1fr); }
@@ -1346,53 +1397,6 @@ button, input, textarea, select {
   .footer__main { grid-template-columns: 1fr; gap: var(--space-md); }
 
   .footer__bottom { flex-direction: column; align-items: flex-start; }
-}
-
-/* ----------------------------------------------------------
-   ABOUT / QUEM SOMOS
-   ---------------------------------------------------------- */
-.about {
-  padding: var(--space-xl) 0;
-  background: var(--clr-bg);
-}
-
-.about__layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-xl);
-  align-items: center;
-}
-
-.about__media {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  box-shadow: 0 24px 60px rgba(20, 40, 15, 0.12);
-}
-
-.about__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  aspect-ratio: 4 / 3;
-}
-
-.about__content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-}
-
-.about__content .section-header { margin-bottom: 0; }
-
-.about__text {
-  font-size: 0.98rem;
-  color: var(--clr-text-muted);
-  line-height: 1.8;
-}
-
-.about__content .btn-primary {
-  align-self: flex-start;
-  margin-top: var(--space-xs);
 }
 
 /* ----------------------------------------------------------
@@ -1416,7 +1420,7 @@ body.legal-page {
 
 .legal-page .nav__logo,
 .legal-page .nav__logo svg { color: var(--clr-text); }
-.legal-page .nav__logo span { color: var(--clr-accent); }
+.legal-page .nav__logo .logo-word span { color: var(--clr-accent); }
 .legal-page .nav__links a { color: var(--clr-text-muted); }
 .legal-page .nav__links a:hover { color: var(--clr-text); }
 .legal-page .nav__hamburger span { background: var(--clr-text); }
