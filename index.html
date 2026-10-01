@@ -30,8 +30,9 @@
   <meta name="twitter:description" content="Soluções aéreas de precisão desde 2013. Norte de Portugal e toda a Península Ibérica.">
   <meta name="twitter:image" content="https://brun95.github.io/drone-agro/assets/share/og-cover.jpg">
 
-  <!-- Favicon (SVG inline — works on all modern browsers) -->
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <link rel="apple-touch-icon" href="assets/icon.png">
 
   <!-- Google Fonts — single request for both fonts -->
   <!-- EDIT: To change fonts, swap out the family names here AND update --font-display / --font-body in css/style.css -->
@@ -51,7 +52,7 @@
     "image": "https://brun95.github.io/drone-agro/assets/share/og-cover.jpg",
     "url": "https://brun95.github.io/drone-agro/",
     "telephone": "+351918811784",
-    "email": "geral@skyplant.pt",
+    "email": "comercial@skyplant.pt",
     "foundingDate": "2013",
     "address": {
       "@type": "PostalAddress",
@@ -90,21 +91,7 @@
 
         <!-- Logo -->
         <a href="#" class="nav__logo" aria-label="SkyPlant — Página inicial">
-          <!-- Inline SVG drone logo -->
-          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="40" height="40" rx="8" fill="currentColor" fill-opacity="0.14"/>
-            <rect x="16" y="16" width="8" height="8" rx="1.5" fill="currentColor"/>
-            <line x1="12" y1="12" x2="16" y2="16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="28" y1="12" x2="24" y2="16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="12" y1="28" x2="16" y2="24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            <line x1="28" y1="28" x2="24" y2="24" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-            <ellipse cx="11" cy="11" rx="4" ry="1.6" fill="currentColor" opacity="0.65" transform="rotate(-35 11 11)"/>
-            <ellipse cx="29" cy="11" rx="4" ry="1.6" fill="currentColor" opacity="0.65" transform="rotate(35 29 11)"/>
-            <ellipse cx="11" cy="29" rx="4" ry="1.6" fill="currentColor" opacity="0.65" transform="rotate(35 11 29)"/>
-            <ellipse cx="29" cy="29" rx="4" ry="1.6" fill="currentColor" opacity="0.65" transform="rotate(-35 29 29)"/>
-          </svg>
-          <!-- EDIT: Company name -->
-          <span class="logo-word">Sky<span>Plant</span></span>
+          <img src="assets/logo.png" alt="SkyPlant" class="logo-img">
         </a>
 
         <!-- Desktop nav links -->
@@ -203,7 +190,7 @@
         <!-- EDIT: Section title -->
         <h2 class="section-title" id="services-heading">Soluções Aéreas de Precisão<br>para o Seu Campo</h2>
         <!-- EDIT: Section lead text -->
-        <p class="section-lead">Tecnologia de ponta e mais de uma década de experiência ao serviço da agricultura sustentável na Península Ibérica — da vinha em socalcos ao olival e cereais.</p>
+        <p class="section-lead">Tecnologia de ponta e mais de uma década de experiência ao serviço da agricultura sustentável na Península Ibérica — da vinha em socalcos ao olival e pomares.</p>
       </div>
 
       <div class="services__grid">
@@ -264,7 +251,7 @@
           <!-- REPLACE IMAGE: Change src below -->
           <div class="service-card__image">
             <img
-              src="assets/servicos/sementeira/card.jpg"
+              src="assets/servicos/sementeira/card.png"
               alt="Drone a semear campo agrícola"
               loading="lazy"
               width="600" height="340"
@@ -294,7 +281,7 @@
           <!-- REPLACE IMAGE: Change src below -->
           <div class="service-card__image">
             <img
-              src="assets/servicos/monitorizacao/card.jpg"
+              src="assets/servicos/monitorizacao/card.png"
               alt="Monitorização NDVI de cultura"
               loading="lazy"
               width="600" height="340"
@@ -558,56 +545,61 @@
         <!-- CULTURE 1 — Olival -->
         <!-- REPLACE IMAGE: Change background-image URL to your own olive grove photo -->
         <article class="culture-card reveal reveal-delay-1" role="listitem">
-          <div class="culture-card__bg" style="background-image: url('assets/culturas/olival.jpg');"></div>
+          <div class="culture-card__bg" data-bg="assets/culturas/olival"></div>
           <div class="culture-card__overlay"></div>
           <div class="culture-card__content">
             <!-- EDIT: Crop name and subtitle -->
             <h3 class="culture-card__name">Olival</h3>
-            <span class="culture-card__sub">Pulverização · Monitorização</span>
           </div>
         </article>
 
         <!-- CULTURE 2 — Vinha -->
         <!-- REPLACE IMAGE: Change background-image URL to your own vineyard photo -->
         <article class="culture-card reveal reveal-delay-2" role="listitem">
-          <div class="culture-card__bg" style="background-image: url('assets/culturas/vinha.jpg');"></div>
+          <div class="culture-card__bg" data-bg="assets/culturas/vinha"></div>
           <div class="culture-card__overlay"></div>
           <div class="culture-card__content">
             <h3 class="culture-card__name">Vinha</h3>
-            <span class="culture-card__sub">Pulverização · NDVI</span>
           </div>
         </article>
 
         <!-- CULTURE 3 — Arroz -->
         <!-- REPLACE IMAGE: Change background-image URL to your own rice field photo -->
         <article class="culture-card reveal reveal-delay-3" role="listitem">
-          <div class="culture-card__bg" style="background-image: url('assets/culturas/arroz.jpg');"></div>
+          <div class="culture-card__bg" data-bg="assets/culturas/arroz"></div>
           <div class="culture-card__overlay"></div>
           <div class="culture-card__content">
             <h3 class="culture-card__name">Arroz</h3>
-            <span class="culture-card__sub">Sementeira · Fertilização</span>
           </div>
         </article>
 
         <!-- CULTURE 4 — Amendoal -->
         <!-- REPLACE IMAGE: Change background-image URL to your own almond grove photo -->
         <article class="culture-card reveal reveal-delay-4" role="listitem">
-          <div class="culture-card__bg" style="background-image: url('assets/culturas/amendoal.jpg');"></div>
+          <div class="culture-card__bg" data-bg="assets/culturas/amendoal"></div>
           <div class="culture-card__overlay"></div>
           <div class="culture-card__content">
             <h3 class="culture-card__name">Amendoal</h3>
-            <span class="culture-card__sub">Pulverização · Monitorização</span>
           </div>
         </article>
 
-        <!-- CULTURE 5 — Cereais -->
-        <!-- REPLACE IMAGE: Change background-image URL to your own cereal field photo -->
+        <!-- CULTURE 5 — Pomares -->
+        <!-- REPLACE IMAGE: Change background-image URL to your own orchard photo -->
         <article class="culture-card reveal reveal-delay-5" role="listitem">
-          <div class="culture-card__bg" style="background-image: url('assets/culturas/cereais.jpg');"></div>
+          <div class="culture-card__bg" data-bg="assets/culturas/pomares"></div>
           <div class="culture-card__overlay"></div>
           <div class="culture-card__content">
-            <h3 class="culture-card__name">Cereais</h3>
-            <span class="culture-card__sub">Sementeira · Fertilização</span>
+            <h3 class="culture-card__name">Pomares</h3>
+          </div>
+        </article>
+
+        <!-- CULTURE 6 — Milho -->
+        <!-- REPLACE IMAGE: Change background-image URL to your own maize field photo -->
+        <article class="culture-card reveal reveal-delay-6" role="listitem">
+          <div class="culture-card__bg" data-bg="assets/culturas/milho"></div>
+          <div class="culture-card__overlay"></div>
+          <div class="culture-card__content">
+            <h3 class="culture-card__name">Milho</h3>
           </div>
         </article>
 
@@ -754,7 +746,7 @@
               <!-- Email icon -->
               <svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x="2" y="4" width="14" height="10" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M2 6l7 5 7-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
               <!-- EDIT: Email address -->
-              <a href="mailto:geral@skyplant.pt">geral@skyplant.pt</a>
+              <a href="mailto:comercial@skyplant.pt">comercial@skyplant.pt</a>
             </li>
             <li class="contact__detail">
               <!-- Location icon -->
@@ -848,19 +840,7 @@
         <!-- Brand column -->
         <div class="footer__brand">
           <a href="#" class="footer__logo" aria-label="SkyPlant — Início">
-            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect width="40" height="40" rx="8" fill="rgba(58,125,47,0.10)"/>
-              <rect x="16" y="16" width="8" height="8" rx="1.5" fill="#3a7d2f"/>
-              <line x1="12" y1="12" x2="16" y2="16" stroke="#3a7d2f" stroke-width="1.8" stroke-linecap="round"/>
-              <line x1="28" y1="12" x2="24" y2="16" stroke="#3a7d2f" stroke-width="1.8" stroke-linecap="round"/>
-              <line x1="12" y1="28" x2="16" y2="24" stroke="#3a7d2f" stroke-width="1.8" stroke-linecap="round"/>
-              <line x1="28" y1="28" x2="24" y2="24" stroke="#3a7d2f" stroke-width="1.8" stroke-linecap="round"/>
-              <ellipse cx="11" cy="11" rx="4" ry="1.6" fill="#3a7d2f" opacity="0.65" transform="rotate(-35 11 11)"/>
-              <ellipse cx="29" cy="11" rx="4" ry="1.6" fill="#3a7d2f" opacity="0.65" transform="rotate(35 29 11)"/>
-              <ellipse cx="11" cy="29" rx="4" ry="1.6" fill="#3a7d2f" opacity="0.65" transform="rotate(35 11 29)"/>
-              <ellipse cx="29" cy="29" rx="4" ry="1.6" fill="#3a7d2f" opacity="0.65" transform="rotate(-35 29 29)"/>
-            </svg>
-            <span class="logo-word">Sky<span>Plant</span></span>
+            <img src="assets/logo.png" alt="SkyPlant" class="logo-img">
           </a>
           <!-- EDIT: Footer tagline -->
           <p class="footer__tagline">Tecnologia de drones ao serviço da agricultura portuguesa. Precisão, eficiência e sustentabilidade.</p>
@@ -903,7 +883,8 @@
             <li><a href="#culturas">Vinha</a></li>
             <li><a href="#culturas">Arroz</a></li>
             <li><a href="#culturas">Amendoal</a></li>
-            <li><a href="#culturas">Cereais</a></li>
+            <li><a href="#culturas">Pomares</a></li>
+            <li><a href="#culturas">Milho</a></li>
           </ul>
         </div>
 

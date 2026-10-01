@@ -128,7 +128,7 @@
   const form = document.querySelector('.contact__form');
   if (form) {
     // EDIT: Replace with your real inbox for the mailto fallback
-    const CONTACT_EMAIL = 'geral@skyplant.pt';
+    const CONTACT_EMAIL = 'comercial@skyplant.pt';
     const status = form.querySelector('.form-status');
 
     // Show a message in the inline status region.
@@ -217,6 +217,61 @@
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
+
+
+  /* ----------------------------------------------------------
+     CULTURE CARD BACKGROUNDS: extension fallback
+     Each .culture-card__bg carries a data-bg base path with no
+     extension. Try the photo as .jpg first, then .jpeg, then
+     .png, and apply the first one that actually loads. Folders
+     may hold the image under any of these (or none yet).
+     ---------------------------------------------------------- */
+  (function () {
+    const EXTS = ['.jpg', '.jpeg', '.png'];
+    document.querySelectorAll('.culture-card__bg[data-bg]').forEach(function (el) {
+      const base = el.getAttribute('data-bg');
+      (function tryExt(i) {
+        if (i >= EXTS.length) return;   // none found — leave the dark card as-is
+        const url = base + EXTS[i];
+        const probe = new Image();
+        probe.onload = function () {
+          el.style.backgroundImage = "url('" + url + "')";
+        };
+        probe.onerror = function () { tryExt(i + 1); };
+        probe.src = url;
+      })(0);
+    });
+  })();
+
+
+  /* ----------------------------------------------------------
+     SERVICE CARD IMAGES: resilient loading
+     Folders may hold the photo under a different extension
+     (card.jpg / card.png / ...) or be empty while the real
+     image is still to be added. Try the common extensions in
+     turn; if none load, swap in a clean "Imagem em breve"
+     placeholder instead of a broken-image icon.
+     ---------------------------------------------------------- */
+  (function () {
+    const EXTS = ['.jpg', '.png', '.jpeg', '.webp'];
+    document.querySelectorAll('.service-card__image img').forEach(function (img) {
+      img.addEventListener('error', function onError() {
+        const base = img.getAttribute('src').replace(/\.[a-z0-9]+$/i, '');
+        let i = parseInt(img.dataset.extIdx || '-1', 10) + 1;
+        // Skip an extension identical to the one that just failed
+        while (i < EXTS.length && base + EXTS[i] === img.getAttribute('src')) i++;
+        if (i < EXTS.length) {
+          img.dataset.extIdx = String(i);
+          img.src = base + EXTS[i];
+        } else {
+          img.removeEventListener('error', onError);
+          const wrap = img.closest('.service-card__image');
+          if (wrap) wrap.classList.add('is-empty');
+          img.remove();
+        }
+      });
+    });
+  })();
 
 
   /* ----------------------------------------------------------

@@ -146,6 +146,7 @@ button, input, textarea, select {
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
 .reveal-delay-5 { transition-delay: 0.5s; }
+.reveal-delay-6 { transition-delay: 0.6s; }
 
 /* ----------------------------------------------------------
    NAVIGATION
@@ -188,21 +189,17 @@ button, input, textarea, select {
   color: #fff;               /* light over the hero; flips dark when scrolled */
 }
 
-.nav__logo svg {
-  width: 32px;
-  height: 32px;
+.nav__logo .logo-img {
+  height: 52px;
+  width: auto;
   flex-shrink: 0;
-  color: #fff;               /* logo mark uses currentColor — see index.html */
-}
-
-.nav__logo .logo-word span {
-  color: #a7e06f;            /* bright leaf-green pops over the dark hero */
+  display: block;
+  filter: brightness(0) invert(1);   /* dark wordmark → white over the hero */
 }
 
 /* Once scrolled onto the light page, the nav bar flips to dark ink */
-.nav.scrolled .nav__logo,
-.nav.scrolled .nav__logo svg { color: var(--clr-text); }
-.nav.scrolled .nav__logo .logo-word span { color: var(--clr-accent); }
+.nav.scrolled .nav__logo { color: var(--clr-text); }
+.nav.scrolled .nav__logo .logo-img { filter: none; }   /* back to the natural dark wordmark */
 .nav.scrolled .nav__links a { color: var(--clr-text-muted); }
 .nav.scrolled .nav__links a:hover { color: var(--clr-text); }
 .nav.scrolled .nav__hamburger span { background: var(--clr-text); }
@@ -596,6 +593,24 @@ button, input, textarea, select {
   transform: scale(1.04);
 }
 
+/* Fallback shown when a card's photo is missing (empty folder / not yet added).
+   JS adds .is-empty after exhausting the image-load attempts. */
+.service-card__image.is-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--clr-surface-2, #eef3e6);
+  border: 1px dashed var(--clr-border);
+}
+
+.service-card__image.is-empty::after {
+  content: "Imagem em breve";
+  color: var(--clr-text-dim);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
 .service-card__title {
   font-family: var(--font-display);
   font-size: 1.35rem;
@@ -804,7 +819,7 @@ button, input, textarea, select {
 
 .cultures__grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: var(--space-sm);
 }
 
@@ -1186,8 +1201,7 @@ button, input, textarea, select {
   color: var(--clr-text);
 }
 
-.footer__logo svg { width: 28px; height: 28px; }
-.footer__logo .logo-word span { color: var(--clr-accent); }
+.footer__logo .logo-img { height: 42px; width: auto; display: block; }
 
 .footer__tagline {
   font-size: 0.88rem;
@@ -1341,8 +1355,6 @@ button, input, textarea, select {
   .how__arrow { display: none; }
 
   .cultures__grid { grid-template-columns: repeat(3, 1fr); }
-  .cultures__grid .culture-card:nth-child(4),
-  .cultures__grid .culture-card:nth-child(5) { display: none; }
 
   .gallery__grid { grid-template-columns: 1fr 1fr; }
   .gallery__item--tall { grid-row: span 1; }
@@ -1385,8 +1397,6 @@ button, input, textarea, select {
   .stats__numbers { grid-template-columns: 1fr 1fr; }
 
   .cultures__grid { grid-template-columns: repeat(2, 1fr); }
-  .cultures__grid .culture-card:nth-child(4) { display: block; }
-  .cultures__grid .culture-card:nth-child(5) { display: none; }
 
   .gallery__grid { grid-template-columns: 1fr; }
   .gallery__item--tall,
@@ -1418,9 +1428,8 @@ body.legal-page {
   box-shadow: 0 1px 0 var(--clr-border);
 }
 
-.legal-page .nav__logo,
-.legal-page .nav__logo svg { color: var(--clr-text); }
-.legal-page .nav__logo .logo-word span { color: var(--clr-accent); }
+.legal-page .nav__logo { color: var(--clr-text); }
+.legal-page .nav__logo .logo-img { filter: none; }   /* natural dark wordmark on the light legal nav */
 .legal-page .nav__links a { color: var(--clr-text-muted); }
 .legal-page .nav__links a:hover { color: var(--clr-text); }
 .legal-page .nav__hamburger span { background: var(--clr-text); }
